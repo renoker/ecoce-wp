@@ -16,7 +16,7 @@ R. demo.ecoce.mx (subdominio de pruebas del cliente). No se cuenta con entorno d
 R. Sitio web corporativo para ECOCE, enfocado en presentación institucional y comunicación de información.
 
 **Persona de contacto técnico del equipo anterior (nombre, correo, teléfono):**  
-R. No aplica. Techies&Beyond es el equipo de desarrollo original del proyecto actual.
+R. No aplica. KJ es el equipo de desarrollo original del proyecto actual.
 
 **Fecha estimada de entrega o transferencia:**  
 R. Por definir con el cliente.
@@ -35,13 +35,13 @@ R. No se cuenta con cPanel, Plesk ni acceso FTP. El servidor se gestiona únicam
 R. No se cuenta con phpMyAdmin. El acceso a la base de datos es únicamente mediante localhost a través de MySQL CLI. Se entregará dump completo de la base de datos en el repositorio para su importación en el nuevo ambiente.
 
 **Acceso a dominio: proveedor de dominio (ej. GoDaddy, Namecheap), credenciales de acceso o contacto autorizado.**  
-R. El dominio/subdominio demo.ecoce.mx es gestionado directamente por el cliente ECOCE. Techies&Beyond no cuenta con acceso a la gestión de DNS.
+R. El dominio/subdominio demo.ecoce.mx es gestionado directamente por el cliente ECOCE. KJ no cuenta con acceso a la gestión de DNS.
 
 **Acceso a correos corporativos (si el sitio los gestiona).**  
 R. No aplica. El sitio WordPress no gestiona correos corporativos.
 
 **Acceso a herramientas externas (Cloudflare, CDN, Google Analytics, Tag Manager, etc.).**  
-R. Las herramientas externas son gestionadas directamente por el cliente ECOCE. Techies&Beyond no cuenta con acceso a estas plataformas. Se recomienda que el cliente proporcione accesos si requiere que el nuevo equipo continúe con la gestión de estas herramientas.
+R. Las herramientas externas son gestionadas directamente por el cliente ECOCE. KJ no cuenta con acceso a estas plataformas. Se recomienda que el cliente proporcione accesos si requiere que el nuevo equipo continúe con la gestión de estas herramientas.
 
 ---
 
@@ -92,7 +92,7 @@ R. Al utilizar Nginx, no hay archivo .htaccess. La configuración de Nginx será
 R. No se utiliza CDN externo. No hay sistema de caché avanzado configurado. Seguridad: Se recomienda instalación de plugin de seguridad (WordFence o similar) en el ambiente de producción final.
 
 **Backups automáticos: sistema usado (Updraft, JetBackup, etc.), frecuencia y ubicación de copias.**  
-R. Los backups automáticos son responsabilidad y están gestionados por el cliente ECOCE en su infraestructura. No hay sistema de backup configurado por Techies&Beyond en el servidor de pruebas.
+R. Los backups automáticos son responsabilidad y están gestionados por el cliente ECOCE en su infraestructura. No hay sistema de backup configurado por KJ en el servidor de pruebas.
 
 ---
 
