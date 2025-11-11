@@ -1,0 +1,88 @@
+# WordPress Core
+# Configuración sensible - NO COMMITEAR CREDENCIALES REALES
+wp-config.php
+# Incluir wp-config-sample.php o wp-config.php con credenciales de ejemplo
+
+# Carpetas de WordPress que se regeneran o son temporales
+/wp-content/cache/
+/wp-content/backup*/
+/wp-content/backups/
+/wp-content/upgrade/
+/wp-content/uploads/cache/
+/wp-content/uploads/elementor/css/
+
+# Logs
+*.log
+error_log
+access_log
+/logs/
+*.err
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Editores
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dependencias y build (si usas Node.js)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Composer (si usas dependencias PHP)
+/vendor/
+composer.lock
+
+# Temporal y caché
+*.tmp
+*.temp
+/tmp/
+/temp/
+
+# Nginx específico - NO incluir cache de nginx
+/nginx-cache/
+/var/cache/nginx/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Certificados SSL (nunca commitear)
+*.key
+*.crt
+*.pem
+*.csr
+
+# Archivos comprimidos grandes (excepto los del database dump)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# WordPress CLI
+wp-cli.local.yml
+
+# Mantener estructura de carpetas vacías
+!.gitkeep
+
+# Archivos específicos que no necesitan versionarse
+.well-known/
+sitemap.xml
+sitemap.xml.gz
+.htaccess
