@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//demo.ecoce.mx/main-sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://demo.ecoce.mx/category/sin-categoria/</loc>
+		<lastmod>2025-09-15T06:51:34+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://demo.ecoce.mx/category/compliance/</loc>
+		<lastmod>2025-09-20T01:01:50+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://demo.ecoce.mx/category/disposal/</loc>
+		<lastmod>2025-09-20T01:01:50+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://demo.ecoce.mx/category/innovation/</loc>
+		<lastmod>2025-09-20T01:01:49+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://demo.ecoce.mx/category/recycling/</loc>
+		<lastmod>2025-09-20T01:01:50+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://demo.ecoce.mx/category/sustainable/</loc>
+		<lastmod>2025-09-20T01:01:50+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://demo.ecoce.mx/category/waste/</loc>
+		<lastmod>2025-09-20T01:01:49+00:00</lastmod>
+	</url>
+</urlset>
