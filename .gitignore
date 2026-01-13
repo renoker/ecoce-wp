@@ -75,6 +75,9 @@ composer.lock
 *.tar.gz
 *.rar
 
+# Backups de base de datos SQL (no versionar)
+*.sql
+
 # WordPress CLI
 wp-cli.local.yml
 
