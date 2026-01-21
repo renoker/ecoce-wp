@@ -89,3 +89,4 @@ wp-cli.local.yml
 sitemap.xml
 sitemap.xml.gz
 .htaccess
+wp-content/uploads/
