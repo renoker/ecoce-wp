@@ -268,6 +268,145 @@ if ( ! function_exists( 'hello_elementor_body_open' ) ) {
 	}
 }
 
+/**
+ * Enqueue CSS para la página Calculadora
+ */
+if ( ! function_exists( 'hello_elementor_enqueue_calculadora_styles' ) ) {
+	function hello_elementor_enqueue_calculadora_styles() {
+		// Solo cargar en la página que usa el template calculadora
+		if ( is_page_template( 'template-calculadora.php' ) ) {
+			wp_enqueue_style(
+				'hello-elementor-calculadora',
+				HELLO_THEME_STYLE_URL . 'calculadora.css',
+				array(),
+				HELLO_ELEMENTOR_VERSION
+			);
+		}
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_enqueue_calculadora_styles' );
+
+/**
+ * Crear tabla para guardar datos de la calculadora
+ */
+if ( ! function_exists( 'hello_elementor_create_calculadora_table' ) ) {
+	function hello_elementor_create_calculadora_table() {
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'calculadora_ecoce';
+		$charset_collate = $wpdb->get_charset_collate();
+
+		$sql = "CREATE TABLE IF NOT EXISTS $table_name (
+			id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			uuid varchar(36) NOT NULL,
+			nombre varchar(255) NOT NULL,
+			pet decimal(10,2) DEFAULT 0,
+			pead decimal(10,2) DEFAULT 0,
+			poli decimal(10,2) DEFAULT 0,
+			pp decimal(10,2) DEFAULT 0,
+			carton_multilaminado decimal(10,2) DEFAULT 0,
+			vidrio decimal(10,2) DEFAULT 0,
+			latas_aluminio decimal(10,2) DEFAULT 0,
+			latas_hojalata decimal(10,2) DEFAULT 0,
+			total decimal(10,2) DEFAULT 0,
+			refrigerador decimal(10,2) DEFAULT 0,
+			arboles_cortados decimal(10,2) DEFAULT 0,
+			camiones_basura decimal(10,2) DEFAULT 0,
+			dias_agua decimal(10,2) DEFAULT 0,
+			km_en_auto decimal(10,2) DEFAULT 0,
+			kg_de_co2 decimal(10,2) DEFAULT 0,
+			created_at datetime DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY  (id),
+			KEY uuid (uuid),
+			KEY created_at (created_at)
+		) $charset_collate;";
+
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta( $sql );
+	}
+}
+add_action( 'after_setup_theme', 'hello_elementor_create_calculadora_table' );
+
+/**
+ * Endpoint AJAX para guardar datos de la calculadora
+ */
+if ( ! function_exists( 'hello_elementor_save_calculadora_data' ) ) {
+	function hello_elementor_save_calculadora_data() {
+		// Verificar nonce para seguridad
+		check_ajax_referer( 'calculadora_nonce', 'nonce' );
+
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'calculadora_ecoce';
+
+		// Generar UUID
+		if ( function_exists( 'wp_generate_uuid4' ) ) {
+			$uuid = wp_generate_uuid4();
+		} else {
+			// Función alternativa para generar UUID v4
+			$uuid = sprintf(
+				'%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+				mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+				mt_rand( 0, 0xffff ),
+				mt_rand( 0, 0x0fff ) | 0x4000,
+				mt_rand( 0, 0x3fff ) | 0x8000,
+				mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+			);
+		}
+
+		// Obtener datos del POST
+		$data = array(
+			'uuid' => $uuid,
+			'nombre' => sanitize_text_field( $_POST['nombre'] ?? '' ),
+			'pet' => floatval( $_POST['pet'] ?? 0 ),
+			'pead' => floatval( $_POST['pead'] ?? 0 ),
+			'poli' => floatval( $_POST['poli'] ?? 0 ),
+			'pp' => floatval( $_POST['pp'] ?? 0 ),
+			'carton_multilaminado' => floatval( $_POST['carton_multilaminado'] ?? 0 ),
+			'vidrio' => floatval( $_POST['vidrio'] ?? 0 ),
+			'latas_aluminio' => floatval( $_POST['latas_aluminio'] ?? 0 ),
+			'latas_hojalata' => floatval( $_POST['latas_hojalata'] ?? 0 ),
+			'total' => floatval( $_POST['total'] ?? 0 ),
+			'refrigerador' => floatval( $_POST['refrigerador'] ?? 0 ),
+			'arboles_cortados' => floatval( $_POST['arboles_cortados'] ?? 0 ),
+			'camiones_basura' => floatval( $_POST['camiones_basura'] ?? 0 ),
+			'dias_agua' => floatval( $_POST['dias_agua'] ?? 0 ),
+			'km_en_auto' => floatval( $_POST['km_en_auto'] ?? 0 ),
+			'kg_de_co2' => floatval( $_POST['kg_de_co2'] ?? 0 ),
+		);
+
+		// Insertar en la base de datos
+		$result = $wpdb->insert( $table_name, $data );
+
+		if ( $result !== false ) {
+			wp_send_json_success( array(
+				'message' => 'Datos guardados correctamente',
+				'uuid' => $uuid,
+				'id' => $wpdb->insert_id
+			) );
+		} else {
+			wp_send_json_error( array(
+				'message' => 'Error al guardar los datos: ' . $wpdb->last_error
+			) );
+		}
+	}
+}
+add_action( 'wp_ajax_save_calculadora_data', 'hello_elementor_save_calculadora_data' );
+add_action( 'wp_ajax_nopriv_save_calculadora_data', 'hello_elementor_save_calculadora_data' );
+
+/**
+ * Localizar script para AJAX
+ */
+if ( ! function_exists( 'hello_elementor_localize_calculadora_script' ) ) {
+	function hello_elementor_localize_calculadora_script() {
+		if ( is_page_template( 'template-calculadora.php' ) ) {
+			wp_localize_script( 'jquery', 'calculadoraAjax', array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'calculadora_nonce' )
+			) );
+		}
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_localize_calculadora_script' );
+
 require HELLO_THEME_PATH . '/theme.php';
 
 HelloTheme\Theme::instance();

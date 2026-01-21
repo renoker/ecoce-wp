@@ -104,7 +104,7 @@ function ccsm_template_redirect() {
     $force = apply_filters('ccsm_force_redirect', false);
 
     // Checks for if user is logged in and CCSM is activated  OR if customizer is open on CCSM customization panel
-    $activated = (!is_user_logged_in() && $ccsm_options['colorlib_coming_soon_activation'] == 1 || is_customize_preview() && isset($_REQUEST['colorlib-coming-soon-customization'])) ? true : false;
+    $activated = (!is_user_logged_in() && isset($ccsm_options['colorlib_coming_soon_activation']) && $ccsm_options['colorlib_coming_soon_activation'] == 1 || is_customize_preview() && isset($_REQUEST['colorlib-coming-soon-customization'])) ? true : false;
 
     // If something "forced" it - but not in customizer -, or the default case was met, we might redirect
     if ($force && !is_customize_preview() || $activated) {
