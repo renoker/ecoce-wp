@@ -211,6 +211,13 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    @media (max-width: 767px) {
+        width: 100%;
+        height: 80%;
+        max-width: max-content;
+        max-height: 200px;
+    }
 }
 
 .eco-mascot-img {
@@ -242,6 +249,11 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    @media (max-width: 767px) {
+        padding: 0 0px;
+        width: 100%;
+    }
 }
 
 .eco-welcome-text {
@@ -479,6 +491,7 @@
     }
 
     .eco-instruction-text {
+        width: 100%;
         font-size: 1rem;
     }
 
@@ -520,8 +533,8 @@
     }
 
     .eco-character {
-        width: 200px;
-        height: 200px;
+        width: 100%;
+        height: auto;
     }
 
     .eco-welcome-text {
@@ -720,7 +733,7 @@
     }
 
     .eco-motivational-text {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
     }
 }
 
@@ -734,7 +747,7 @@
     }
 
     .eco-motivational-text {
-        font-size: 1.25rem;
+        font-size: 1.25rem !important;
     }
 }
 
@@ -837,17 +850,19 @@
     }
 
     .eco-tip-number {
-        width: 36px;
-        height: 36px;
+        width: 45px;
+        height: 45px;
         font-size: 1.1rem;
     }
 
     .eco-tip-box {
-        padding: 14px 18px;
+        padding: 5px 53px;
+        height: 43px;
     }
 
     .eco-tip-text {
-        font-size: 0.95rem;
+        font-size: 11px;
+        line-height: 1.2;
     }
 }
 
