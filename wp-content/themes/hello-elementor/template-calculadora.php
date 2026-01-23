@@ -205,7 +205,7 @@ get_header();
                 <!-- Paso 4: Formulario de envases metálicos -->
                 <div class="eco-welcome-content eco-step" data-step="4" style="display: none;">
                     <p class="eco-instruction-text">
-                        ¿Que tal te fue separando con los envases y empaques metálicos?
+                        ¿Qué tal te fue separando con los envases y empaques metálicos?
                     </p>
 
                     <form class="eco-quantities-form" id="eco-metalicos-form">
@@ -443,9 +443,7 @@ get_header();
         <div class="eco-motivational-container">
             <div class="eco-motivational-box">
                 <p class="eco-motivational-text">
-                    "Mejora tus resultados<br>
-                    periódicamente haciendo el<br>
-                    reciclaje parte de tu vida"
+                    "Mejora tus resultados periódicamente al separar tus residuos y canalizarlos a reciclaje"
                 </p>
             </div>
         </div>
@@ -454,7 +452,7 @@ get_header();
     <!-- Bloque de Tips -->
     <div class="eco-tips-block" id="eco-tips-block" style="display: none;">
         <div class="eco-tips-container">
-            <h2 class="eco-tips-title">Algunos tipos para ayudar mucho más</h2>
+            <h2 class="eco-tips-title">Algunos tips para ayudar mucho más</h2>
 
             <div class="eco-tips-grid">
                 <!-- Tip 1 -->
@@ -525,7 +523,7 @@ get_header();
                 <div class="eco-tip-item">
                     <div class="eco-tip-number">9</div>
                     <div class="eco-tip-box">
-                        <p class="eco-tip-text">Investiga cual es el tratamiento local de los residuos que generas en casa</p>
+                        <p class="eco-tip-text">Investiga cuál es el tratamiento local de los residuos que generas en casa</p>
                     </div>
                 </div>
 
